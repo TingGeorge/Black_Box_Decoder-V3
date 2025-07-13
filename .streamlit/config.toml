@@ -1,0 +1,5 @@
+[theme]
+base = "dark"
+
+[layout]
+wideMode = false

@@ -1,1 +1,1 @@
-streamlit_gsheets
+st-gsheets-connection

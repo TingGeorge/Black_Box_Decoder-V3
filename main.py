@@ -96,7 +96,7 @@ def login():
         null0, left_element, null1, right_element, null2 = st.columns([8, 8, 0.5, 2, 8], vertical_alignment="bottom")
 
         with left_element:
-            st.text_input(label="", placeholder="請輸入組別：", key="username_input")
+            st.text_input(label="", placeholder="請輸入隊名：", key="username_input")
 
         with right_element:
             st.form_submit_button("", icon=":material/line_end_arrow_notch:", on_click=login_contents)

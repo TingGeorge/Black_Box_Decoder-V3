@@ -72,7 +72,7 @@ def login():
 
     def login_contents():
         # Ensure the "Name" column is of string type for comparison
-        st.session_state.user = "u " + str(st.session_state.username_input)
+        st.session_state.user = "USER " + str(st.session_state.username_input)
         st.session_state.existing_data["Name"] = st.session_state.existing_data["Name"].astype(str)
         
         if st.session_state.user not in st.session_state.existing_data["Name"].values:

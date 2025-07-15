@@ -66,7 +66,7 @@ st.session_state.existing_data["Name"].replace("", None, inplace=True)
 st.session_state.existing_data.dropna(subset=["Name"], inplace=True)
 
 def login():
-    for i in range(15):
+    for i in range(10):
         st.write("")
     st.image("user_logo.png", use_container_width=True)
 

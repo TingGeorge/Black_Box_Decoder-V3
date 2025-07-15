@@ -71,32 +71,35 @@ def login():
     st.image("user_logo.png", use_container_width=True)
 
     def login_contents():
-            st.session_state.user = st.session_state.username_input
-            if st.session_state.user not in st.session_state.existing_data["Name"].values:
-                new_data = pd.DataFrame(
-                    [
-                        {
-                            "Name": st.session_state.user,
-                            "Level 1": "",
-                            "Level 2": "",
-                            "Level 3": ""
-                        }
-                    ]
-                )
-                new_pd = pd.concat([st.session_state.existing_data, new_data], ignore_index=True)
-                st.session_state.conn.update(worksheet="Sheet1", data=new_pd)
-                st.session_state.existing_data = new_pd  # <-- update session state immediately
-                st.session_state.index = new_pd.shape[0] - 1  # number of rows
-            else:
-                st.session_state.index = st.session_state.existing_data.index[st.session_state.existing_data["Name"] == st.session_state.user].tolist()[0]
-
-            st.cache_data.clear()
+        # Ensure the "Name" column is of string type for comparison
+        st.session_state.user = str(st.session_state.username_input)
+        st.session_state.existing_data["Name"] = st.session_state.existing_data["Name"].astype(str)
+        
+        if st.session_state.user not in st.session_state.existing_data["Name"].values:
+            new_data = pd.DataFrame(
+                [
+                    {
+                        "Name": st.session_state.user,
+                        "Level 1": "",
+                        "Level 2": "",
+                        "Level 3": ""
+                    }
+                ]
+            )
+            new_pd = pd.concat([st.session_state.existing_data, new_data], ignore_index=True)
+            st.session_state.conn.update(worksheet="Sheet1", data=new_pd)
+            st.session_state.existing_data = new_pd  # <-- update session state immediately
+            st.session_state.index = new_pd.shape[0] - 1  # number of rows
+        else:
+            st.session_state.index = st.session_state.existing_data.index[st.session_state.existing_data["Name"] == st.session_state.user].tolist()[0]
+        
+        st.cache_data.clear()
 
     with st.form("login_form", border=False):
         null0, left_element, null1, right_element, null2 = st.columns([8, 8, 0.5, 2, 8], vertical_alignment="bottom")
 
         with left_element:
-            st.text_input(label="", placeholder="請輸入隊名：", key="username_input")
+            st.text_input(label="", placeholder="請輸入組別：", key="username_input")
 
         with right_element:
             st.form_submit_button("", icon=":material/line_end_arrow_notch:", on_click=login_contents)

@@ -4,9 +4,9 @@ st.image("end_title_stars.png")
 st.write("")
 st.write("")
 
-CORRECT_ANSWER_1 = "welcome to 118csie in nuk!"
-CORRECT_ANSWER_2 = "startwithhelloworld"
-CORRECT_ANSWER_3 = "madeintaiwan"
+CORRECT_ANSWER_1 = st.secrets["answers"]["level_1"]
+CORRECT_ANSWER_2 = st.secrets["answers"]["level_2"]
+CORRECT_ANSWER_3 = st.secrets["answers"]["level_3"]
 
 if st.session_state.level_1_correct:
     if not st.session_state.score_calculated_1:

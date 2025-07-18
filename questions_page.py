@@ -32,7 +32,7 @@ with tab_1:
                 st.markdown("<p style='text-align: center;'>fdw234</p>", unsafe_allow_html=True)
                 st.markdown("<p style='text-align: center;'>kl</p>", unsafe_allow_html=True)
 
-    CORRECT_ANSWER_1 = "welcome to 118csie in nuk!"
+    CORRECT_ANSWER_1 = st.secrets["answers"]["level_1"]
 
     def on_submit_1():
         st.session_state.text_1 = st.session_state.answer_1
@@ -98,7 +98,7 @@ with tab_2:
                 st.markdown("<p style='text-align: center;'>jfh4ofhjeo</p>", unsafe_allow_html=True)
                 st.markdown("<p style='text-align: center;'>lslslslslsl</p>", unsafe_allow_html=True)
 
-    CORRECT_ANSWER_2 = "startwithhelloworld"
+    CORRECT_ANSWER_2 = st.secrets["answers"]["level_2"]
 
     def on_submit_2():
         st.session_state.text_2 = st.session_state.answer_2
@@ -164,7 +164,7 @@ with tab_3:
                 st.markdown("<p style='text-align: center;'>vg7d3c2j4rnc</p>", unsafe_allow_html=True)
                 st.markdown("<p style='text-align: center;'>24gpwl8</p>", unsafe_allow_html=True)
 
-    CORRECT_ANSWER_3 = "madeintaiwan"
+    CORRECT_ANSWER_3 = st.secrets["answers"]["level_3"]
 
     def on_submit_3():
         st.session_state.text_3 = st.session_state.answer_3

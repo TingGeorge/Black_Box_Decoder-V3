@@ -200,8 +200,3 @@ with tab_3:
         st.success("Level 3 已通過！", icon="✅")
     elif st.session_state.fail_answer_3:
         st.error("答案不正確，請再試一次！", icon="🚨")
-
-
-# welcome to 118csie in nuk!
-# startwithhelloworld
-# madeintaiwan
